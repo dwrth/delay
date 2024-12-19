@@ -44,4 +44,6 @@ private:
     juce::AudioParameterFloat* delayTimeParam;
     float targetDelayTime = 0.0f;
     float coeff = 0.0f;
+    
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Parameters)
 };
