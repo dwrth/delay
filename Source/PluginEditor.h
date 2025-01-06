@@ -18,18 +18,22 @@
 */
 class DelayAudioProcessorEditor  : public juce::AudioProcessorEditor
 {
-public:
+    public:
     DelayAudioProcessorEditor (DelayAudioProcessor&);
     ~DelayAudioProcessorEditor() override;
-
+    
     //==============================================================================
     void paint (juce::Graphics&) override;
     void resized() override;
-
-private:
+    
+    private:
     DelayAudioProcessor& audioProcessor;
     
     RotaryKnob gainKnob { "Gain", audioProcessor.apvts, gainParamID };
+    RotaryKnob mixKnob { "Mix", audioProcessor.apvts, mixParamID };
+    RotaryKnob delayTimeKnob { "Time", audioProcessor.apvts, delayTimeParamID };
+    
+    juce::GroupComponent delayGroup, feedbackGroup, outputGroup;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (DelayAudioProcessorEditor)
 };

@@ -28,6 +28,16 @@ static juce::String stringFromMilliseconds(float value, int)
     return juce::String(value * 0.001f, 2) + " s";
 }
 
+static float millisecondsFromString(const juce::String& text) {
+    float value = text.getFloatValue();
+    if (!text.endsWithIgnoreCase("ms")) {
+        if (!text.endsWithIgnoreCase("s") || value < Parameters::minDelayTime) {
+            return value * 1000.0f;
+        }
+    }
+    return value;
+}
+
 static juce::String stringFromDecibels(float value, int)
 {
     return juce::String(value, 1) + " dB";
