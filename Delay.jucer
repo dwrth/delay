@@ -7,6 +7,8 @@
               cppLanguageStandard="20" pluginVST3Category="Delay,Fx" pluginAAXCategory="16">
   <MAINGROUP id="eczLud" name="Delay">
     <GROUP id="{8B8E7109-EF92-FB4E-CE94-0EDB707B4431}" name="Source">
+      <FILE id="mk9Lnd" name="LookAndFeel.cpp" compile="1" resource="0" file="Source/LookAndFeel.cpp"/>
+      <FILE id="gjKDwi" name="LookAndFeel.h" compile="0" resource="0" file="Source/LookAndFeel.h"/>
       <FILE id="nhzNig" name="Parameters.cpp" compile="1" resource="0" file="Source/Parameters.cpp"/>
       <FILE id="Pm0N2x" name="Parameters.h" compile="0" resource="0" file="Source/Parameters.h"/>
       <FILE id="kbRznX" name="RotaryKnob.cpp" compile="1" resource="0" file="Source/RotaryKnob.cpp"/>
