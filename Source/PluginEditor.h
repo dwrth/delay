@@ -29,11 +29,7 @@ public:
 private:
     DelayAudioProcessor& audioProcessor;
     
-    RotaryKnob gainKnob;
-    
-    juce::AudioProcessorValueTreeState::SliderAttachment attachment {
-        audioProcessor.apvts, gainParamID.getParamID(), gainKnob.slider
-    };
+    RotaryKnob gainKnob { "Gain", audioProcessor.apvts, gainParamID };
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (DelayAudioProcessorEditor)
 };
