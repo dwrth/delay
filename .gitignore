@@ -1,3 +1,21 @@
-Builds
+# Build directories
+build/
+Builds/
+JuceLibraryCode/
 
-JuceLibraryCode
+# IDE specific
+.cache/
+compile_commands.json
+.vs/
+.idea/
+*.user
+*.suo
+*.workspace
+*.xcworkspace
+*.xcodeproj
+*.sln
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
