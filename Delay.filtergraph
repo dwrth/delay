@@ -3,54 +3,56 @@
 <FILTERGRAPH>
   <FILTER uid="3" x="0.38875" y="0.764344262295082" useARA="0">
     <PLUGIN name="Audio Output" descriptiveName="" format="Internal" category="I/O devices"
-            manufacturer="JUCE" version="1.0" file="" uniqueId="724248cb"
-            isInstrument="0" fileTime="0" infoUpdateTime="0" numInputs="1"
-            numOutputs="0" isShell="0" hasARAExtension="0" uid="724248cb"/>
+      manufacturer="JUCE" version="1.0" file="" uniqueId="724248cb"
+      isInstrument="0" fileTime="0" infoUpdateTime="0" numInputs="1"
+      numOutputs="0" isShell="0" hasARAExtension="0" uid="724248cb" />
     <STATE>0.</STATE>
     <LAYOUT>
       <INPUTS>
-        <BUS index="0" layout="L R"/>
+        <BUS index="0" layout="L R" />
       </INPUTS>
       <OUTPUTS>
-        <BUS index="0" layout="disabled"/>
+        <BUS index="0" layout="disabled" />
       </OUTPUTS>
     </LAYOUT>
   </FILTER>
   <FILTER uid="5" x="0.4875" y="0.4733606557377049" useARA="0" uiLastX_Normal="877"
-          uiLastY_Normal="433" uiopen_Normal="1" uiLastX_Generic="477"
-          uiLastY_Generic="259" uiopen_Generic="1">
+    uiLastY_Normal="433" uiopen_Normal="1" uiLastX_Generic="477"
+    uiLastY_Generic="259" uiopen_Generic="1">
     <PLUGIN name="DeutscheBahn" format="VST3" category="Fx|Delay" manufacturer="dwrth"
-            version="1.0.0" file="/Users/davidwerth/Library/Audio/Plug-Ins/VST3/Delay.vst3"
-            uniqueId="f19f9d6c" isInstrument="0" fileTime="193cbc1013b" infoUpdateTime="193da8f6ffe"
-            numInputs="2" numOutputs="2" isShell="0" hasARAExtension="0"
-            uid="9c00649d"/>
-    <STATE>330.VMjLgDT....O+fWarAhckI2bo8la8HRLt.iHfTlai8FYo41Y8HRUTYTK3HxO9.BOVMEUy.Ea0cVZtMEcgQWY9vSRC8Vav8lak4Fc9DiMy3hUMoFSmMSQt3hKt7zJlcUXxEDZisVRxH1a3vVX3fjTLQmKogjYTwVXogiQY8FMwjENHIUUTkEUKMCR38TNtHzSPUDahcFLVkkdUwlX4QyPOAUQpQUPvPDRuEkUOglXVg0azvFRlg0UXIWUWkENHIDSz4RZHU2LC8TctTEV3UjUgsVTWkEdM01St3hKt3hKt3hKt3hKJUELPUTPqI1aYcEV5UkQQcVTWgkKDAkKBs1QhcVSxHlKDAkKC4BTG4hKt3hKt3hKt3FUUMTUDQEdqw1XmE0UYQTQFM1YAwyKIMzasA2atUlaz4COuX0TTMCTrU2Yo41TzEFck4C.</STATE>
+      version="1.0.0" file="/Users/davidwerth/Library/Audio/Plug-Ins/VST3/Delay.vst3"
+      uniqueId="f19f9d6c" isInstrument="0" fileTime="193cbc1013b" infoUpdateTime="193da8f6ffe"
+      numInputs="2" numOutputs="2" isShell="0" hasARAExtension="0"
+      uid="9c00649d" />
+    <STATE>
+      330.VMjLgDT....O+fWarAhckI2bo8la8HRLt.iHfTlai8FYo41Y8HRUTYTK3HxO9.BOVMEUy.Ea0cVZtMEcgQWY9vSRC8Vav8lak4Fc9DiMy3hUMoFSmMSQt3hKt7zJlcUXxEDZisVRxH1a3vVX3fjTLQmKogjYTwVXogiQY8FMwjENHIUUTkEUKMCR38TNtHzSPUDahcFLVkkdUwlX4QyPOAUQpQUPvPDRuEkUOglXVg0azvFRlg0UXIWUWkENHIDSz4RZHU2LC8TctTEV3UjUgsVTWkEdM01St3hKt3hKt3hKt3hKJUELPUTPqI1aYcEV5UkQQcVTWgkKDAkKBs1QhcVSxHlKDAkKC4BTG4hKt3hKt3hKt3FUUMTUDQEdqw1XmE0UYQTQFM1YAwyKIMzasA2atUlaz4COuX0TTMCTrU2Yo41TzEFck4C.</STATE>
     <LAYOUT>
       <INPUTS>
-        <BUS index="0" layout="L R"/>
+        <BUS index="0" layout="L R" />
       </INPUTS>
       <OUTPUTS>
-        <BUS index="0" layout="L R"/>
+        <BUS index="0" layout="L R" />
       </OUTPUTS>
     </LAYOUT>
   </FILTER>
   <FILTER uid="8" x="0.32" y="0.1147540983606557" useARA="0" uiLastX_Normal="219"
-          uiLastY_Normal="376" uiopen_Normal="1">
+    uiLastY_Normal="376" uiopen_Normal="1">
     <PLUGIN name="AUAudioFilePlayer" format="AudioUnit" category="Generator"
-            manufacturer="Apple" version="1.6.0" file="AudioUnit:Generators/augn,afpl,appl"
-            uniqueId="6163676e" isInstrument="0" fileTime="0" infoUpdateTime="193da8f6ffe"
-            numInputs="0" numOutputs="2" isShell="0" hasARAExtension="0"
-            uid="6163676e"/>
-    <STATE>659.hAGaoMGcv.C1AHv.DTfAGfPBJr.Gc3wGgvUag4VclE1XzUmbkIGUjEFcg8EDarVPUAkbkMWYzAUYxMWZyQWYtQ2TzEFcksTY4c0b0IFc4AWYWYWYxMWZu4FUzkGbk8EDOXVZrUVKxUlYkIWYtMVYyQkag0VYRDFbvwFPgxvzM3vCPDwEXYTZrUlSg0VYWIUYmk1atMmWIM2TkwVYiQWYjYTZrU1WPT5KUMWYxM2KjElcoQ1ckIGcn8BSoIlbgIWduDDbvwVZiEFco8lafLUcvA2axQ2KBkFc2k1YuHTZzcWZmAxTzUGYo81Ko41bzEFarUFYs.WXisVXmU1buTiKv7RRxIWcvQ2KIImb0AGcfTTcx8lbgM1ZuzTYr8FYoMFHL81avMGHwHCLhAWaujjbxUGbzARQRARSkw1ajk1XfDiLvHFbsAhLx3xcgYWnRP8DTTgEWfwEZ3kTkcVZu4FQuU1bL81avokTkcVZu4FQgQWXeAADIM2TkwVYiQWYjIUYmk1atokTkcVZu4lSg0VYI7DDvA..........fpubB..X...................XiaTP..........fLvTjTkHCLMUFauQVZiUhLA....HFbsUB.....................................+++2AA..........fHVA......PBZ4TY2AhTkcVZu4VBRDlYvwFD.HQX0claQCBDVYTZrUFHwfUUtQWZzwVYjA.B.jA.l.vJ.jD.QAPV.3E.vAPc.nG.6APe.PH.MBPk.PZ.LEfSAbU.lEPbAPX.OF.jBLf.DHvCB.g.UHvEBvg.eHfI........BD..........h...................B7B</STATE>
+      manufacturer="Apple" version="1.6.0" file="AudioUnit:Generators/augn,afpl,appl"
+      uniqueId="6163676e" isInstrument="0" fileTime="0" infoUpdateTime="193da8f6ffe"
+      numInputs="0" numOutputs="2" isShell="0" hasARAExtension="0"
+      uid="6163676e" />
+    <STATE>
+      659.hAGaoMGcv.C1AHv.DTfAGfPBJr.Gc3wGgvUag4VclE1XzUmbkIGUjEFcg8EDarVPUAkbkMWYzAUYxMWZyQWYtQ2TzEFcksTY4c0b0IFc4AWYWYWYxMWZu4FUzkGbk8EDOXVZrUVKxUlYkIWYtMVYyQkag0VYRDFbvwFPgxvzM3vCPDwEXYTZrUlSg0VYWIUYmk1atMmWIM2TkwVYiQWYjYTZrU1WPT5KUMWYxM2KjElcoQ1ckIGcn8BSoIlbgIWduDDbvwVZiEFco8lafLUcvA2axQ2KBkFc2k1YuHTZzcWZmAxTzUGYo81Ko41bzEFarUFYs.WXisVXmU1buTiKv7RRxIWcvQ2KIImb0AGcfTTcx8lbgM1ZuzTYr8FYoMFHL81avMGHwHCLhAWaujjbxUGbzARQRARSkw1ajk1XfDiLvHFbsAhLx3xcgYWnRP8DTTgEWfwEZ3kTkcVZu4FQuU1bL81avokTkcVZu4FQgQWXeAADIM2TkwVYiQWYjIUYmk1atokTkcVZu4lSg0VYI7DDvA..........fpubB..X...................XiaTP..........fLvTjTkHCLMUFauQVZiUhLA....HFbsUB.....................................+++2AA..........fHVA......PBZ4TY2AhTkcVZu4VBRDlYvwFD.HQX0claQCBDVYTZrUFHwfUUtQWZzwVYjA.B.jA.l.vJ.jD.QAPV.3E.vAPc.nG.6APe.PH.MBPk.PZ.LEfSAbU.lEPbAPX.OF.jBLf.DHvCB.g.UHvEBvg.eHfI........BD..........h...................B7B</STATE>
     <LAYOUT>
-      <INPUTS/>
+      <INPUTS />
       <OUTPUTS>
-        <BUS index="0" layout="L R"/>
+        <BUS index="0" layout="L R" />
       </OUTPUTS>
     </LAYOUT>
   </FILTER>
-  <CONNECTION srcFilter="5" srcChannel="0" dstFilter="3" dstChannel="0"/>
-  <CONNECTION srcFilter="5" srcChannel="1" dstFilter="3" dstChannel="1"/>
-  <CONNECTION srcFilter="8" srcChannel="0" dstFilter="5" dstChannel="0"/>
-  <CONNECTION srcFilter="8" srcChannel="1" dstFilter="5" dstChannel="1"/>
+  <CONNECTION srcFilter="5" srcChannel="0" dstFilter="3" dstChannel="0" />
+  <CONNECTION srcFilter="5" srcChannel="1" dstFilter="3" dstChannel="1" />
+  <CONNECTION srcFilter="8" srcChannel="0" dstFilter="5" dstChannel="0" />
+  <CONNECTION srcFilter="8" srcChannel="1" dstFilter="5" dstChannel="1" />
 </FILTERGRAPH>
