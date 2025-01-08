@@ -10,6 +10,7 @@
 
 #include "RotaryKnob.h"
 #include "LookAndFeel.h"
+#include "juce_core/juce_core.h"
 #include <JuceHeader.h>
 
 //==============================================================================
@@ -21,6 +22,8 @@ RotaryKnob::RotaryKnob(const juce::String &text,
       juce::Slider::SliderStyle::RotaryHorizontalVerticalDrag);
   slider.setTextBoxStyle(juce::Slider::TextBoxBelow, false, 70, 16);
   slider.setBounds(0, 0, 70, 86);
+  float pi = juce::MathConstants<float>::pi;
+  slider.setRotaryParameters(1.25f * pi, 2.75f * pi, true);
   addAndMakeVisible(slider);
 
   label.setText(text, juce::NotificationType::dontSendNotification);
