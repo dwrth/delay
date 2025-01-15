@@ -9,9 +9,23 @@
 */
 
 #include "LookAndFeel.h"
+#include "../JuceLibraryCode/BinaryData.h"
 #include "juce_graphics/juce_graphics.h"
 #include "juce_gui_basics/juce_gui_basics.h"
 #include <cmath>
+
+const juce::Typeface::Ptr Fonts::typeFace =
+    juce::Typeface::createSystemTypefaceFor(BinaryData::LatoMedium_ttf,
+                                            BinaryData::LatoMedium_ttfSize);
+
+juce::Font Fonts::getFont(float height) {
+  return juce::FontOptions(typeFace).withHeight(height);
+}
+
+juce::Font
+RotaryKnobLookAndFeel::getLabelFont([[maybe_unused]] juce::Label &label) {
+  return Fonts::getFont();
+}
 
 RotaryKnobLookAndFeel::RotaryKnobLookAndFeel() {
   setColour(juce::Label::textColourId, Colors::Knob::label);
@@ -80,4 +94,13 @@ void RotaryKnobLookAndFeel::drawRotarySlider(
     g.setColour(slider.findColour(juce::Slider::rotarySliderFillColourId));
     g.strokePath(valueArc, strokeType);
   }
+}
+
+MainLookAndFeel::MainLookAndFeel() {
+  setColour(juce::GroupComponent::textColourId, Colors::Group::label);
+  setColour(juce::GroupComponent::outlineColourId, Colors::Group::outline);
+}
+
+juce::Font MainLookAndFeel::getLabelFont([[maybe_unused]] juce::Label &label) {
+  return Fonts::getFont();
 }

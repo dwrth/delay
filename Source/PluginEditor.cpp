@@ -7,6 +7,7 @@
 */
 
 #include "PluginEditor.h"
+#include "LookAndFeel.h"
 #include "PluginProcessor.h"
 #include "juce_graphics/juce_graphics.h"
 #include "juce_gui_basics/juce_gui_basics.h"
@@ -14,6 +15,9 @@
 //==============================================================================
 DelayAudioProcessorEditor::DelayAudioProcessorEditor(DelayAudioProcessor &p)
     : AudioProcessorEditor(&p), audioProcessor(p) {
+
+  setLookAndFeel(&mainLF);
+
   delayGroup.setText("Delay");
   delayGroup.setTextLabelPosition(juce::Justification::horizontallyCentred);
   delayGroup.addAndMakeVisible(delayTimeKnob);
@@ -35,7 +39,9 @@ DelayAudioProcessorEditor::DelayAudioProcessorEditor(DelayAudioProcessor &p)
   setSize(500, 330);
 }
 
-DelayAudioProcessorEditor::~DelayAudioProcessorEditor() {}
+DelayAudioProcessorEditor::~DelayAudioProcessorEditor() {
+  setLookAndFeel(nullptr);
+}
 
 //==============================================================================
 void DelayAudioProcessorEditor::paint(juce::Graphics &g) {
