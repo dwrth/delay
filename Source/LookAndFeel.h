@@ -32,6 +32,16 @@ const juce::Colour caret{255, 255, 255};
 } // namespace Knob
 } // namespace Colors
 
+class Fonts {
+  Fonts() = delete;
+
+public:
+  static juce::Font getFont(float height = 16.0f);
+
+private:
+  static const juce::Typeface::Ptr typeFace;
+};
+
 class RotaryKnobLookAndFeel : public juce::LookAndFeel_V4 {
 public:
   RotaryKnobLookAndFeel();

@@ -8,6 +8,8 @@
 
 #include "PluginEditor.h"
 #include "PluginProcessor.h"
+#include "juce_graphics/juce_graphics.h"
+#include "juce_gui_basics/juce_gui_basics.h"
 
 //==============================================================================
 DelayAudioProcessorEditor::DelayAudioProcessorEditor(DelayAudioProcessor &p)
@@ -26,6 +28,9 @@ DelayAudioProcessorEditor::DelayAudioProcessorEditor(DelayAudioProcessor &p)
   outputGroup.addAndMakeVisible(gainKnob);
   outputGroup.addAndMakeVisible(mixKnob);
   addAndMakeVisible(outputGroup);
+
+  gainKnob.slider.setColour(juce::Slider::rotarySliderFillColourId,
+                            juce::Colours::green);
 
   setSize(500, 330);
 }

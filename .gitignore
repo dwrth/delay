@@ -1,7 +1,7 @@
 # Build directories
 build/
 Builds/
-JuceLibraryCode/
+Delay_artefacts/
 
 # IDE specific
 .cache/
@@ -19,3 +19,8 @@ compile_commands.json
 CMakeFiles/
 CMakeCache.txt
 cmake_install.cmake
+
+# JUCE
+JUCE/
+JuceLibraryCode/
+juce_vst3_helper
