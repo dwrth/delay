@@ -53,6 +53,11 @@ public:
   RotaryKnobLookAndFeel();
 
   juce::Font getLabelFont(juce::Label &) override;
+  juce::Label *createSliderTextBox(juce::Slider &) override;
+  void drawTextEditorOutline(juce::Graphics &, int, int,
+                             juce::TextEditor &) override {}
+  void fillTextEditorBackground(juce::Graphics &, int, int,
+                                juce::TextEditor &) override;
 
   static RotaryKnobLookAndFeel *get() {
     static RotaryKnobLookAndFeel instance;
