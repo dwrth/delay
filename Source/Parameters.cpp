@@ -9,6 +9,9 @@
 */
 
 #include "Parameters.h"
+#include "juce_audio_processors/juce_audio_processors.h"
+#include "juce_core/juce_core.h"
+#include <memory>
 template <typename T>
 static void castParameter(juce::AudioProcessorValueTreeState &apvts,
                           const juce::ParameterID &id, T &destination) {
@@ -48,6 +51,7 @@ Parameters::Parameters(juce::AudioProcessorValueTreeState &apvts) {
   castParameter(apvts, gainParamID, gainParam);
   castParameter(apvts, delayTimeParamID, delayTimeParam);
   castParameter(apvts, mixParamID, mixParam);
+  castParameter(apvts, feedbackParamID, feedbackParam);
 }
 
 juce::AudioProcessorValueTreeState::ParameterLayout
@@ -70,6 +74,11 @@ Parameters::createParameterLayout() {
       100.0f,
       juce::AudioParameterFloatAttributes().withStringFromValueFunction(
           stringFromPercent)));
+  layout.add(std::make_unique<juce::AudioParameterFloat>(
+      feedbackParamID, "Feedbak",
+      juce::NormalisableRange<float>(-100.0f, 100.0f, 1.0f), 0.0f,
+      juce::AudioParameterFloatAttributes().withStringFromValueFunction(
+          stringFromPercent)));
   return layout;
 }
 
@@ -79,12 +88,15 @@ void Parameters::update() noexcept {
   targetDelayTime = delayTimeParam->get();
   if (delayTime == 0.0f)
     delayTime = targetDelayTime;
+
+  feedbackSmoother.setTargetValue(feedbackParam->get() * 0.01f);
 }
 
 void Parameters::prepareToPlay(double sampleRate) noexcept {
   double duration = 0.02;
   gainSmoother.reset(sampleRate, duration);
   mixSmoother.reset(sampleRate, duration);
+  feedbackSmoother.reset(sampleRate, duration);
 
   coeff = 1.0f - std::exp(-1.0f / (0.2f * float(sampleRate)));
 }
@@ -98,10 +110,14 @@ void Parameters::reset() noexcept {
 
   mix = 1.0f;
   mixSmoother.setCurrentAndTargetValue(mixParam->get() * 0.01f);
+
+  feedback = 0.0f;
+  feedbackSmoother.setCurrentAndTargetValue(feedbackParam->get() * 0.01f);
 }
 
 void Parameters::smoothen() noexcept {
   gain = gainSmoother.getNextValue();
   mix = mixSmoother.getNextValue();
   delayTime += (targetDelayTime - delayTime) * coeff;
+  feedback = feedbackSmoother.getNextValue();
 }

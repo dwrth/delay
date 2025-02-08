@@ -35,6 +35,7 @@ target_sources(Delay
         Source/Parameters.cpp
         Source/RotaryKnob.cpp
         Source/LookAndFeel.cpp
+        ../../../getting-started-book/Resources/ProtectYourEars.h
 )
 
 # Update include directories to include JuceLibraryCode

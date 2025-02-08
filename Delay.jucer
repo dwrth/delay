@@ -12,6 +12,8 @@
       <FILE id="cNt2eV" name="Lato-Medium.ttf" compile="0" resource="1" file="../../../getting-started-book/Resources/Lato-Medium.ttf"/>
     </GROUP>
     <GROUP id="{8B8E7109-EF92-FB4E-CE94-0EDB707B4431}" name="Source">
+      <FILE id="u4w4k3" name="ProtectYourEars.h" compile="0" resource="0"
+            file="Source/ProtectYourEars.h"/>
       <FILE id="mk9Lnd" name="LookAndFeel.cpp" compile="1" resource="0" file="Source/LookAndFeel.cpp"/>
       <FILE id="gjKDwi" name="LookAndFeel.h" compile="0" resource="0" file="Source/LookAndFeel.h"/>
       <FILE id="nhzNig" name="Parameters.cpp" compile="1" resource="0" file="Source/Parameters.cpp"/>
