@@ -41,16 +41,16 @@ target_sources(Delay
     Source/LookAndFeel.cpp
 )
 
-# Update include directories to include JuceLibraryCode
-target_include_directories(Delay
-    PRIVATE
-    Source
-    ${CMAKE_CURRENT_BINARY_DIR}/JuceLibraryCode
-)
+# Add binary data
+juce_add_binary_data(AudioPluginData SOURCES
+  Resources/Lato-Medium.ttf
+  Resources/Logo.png
+  Resources/Noise.png)
 
 # Link with JUCE modules
 target_link_libraries(Delay
     PRIVATE
+    AudioPluginData
     juce::juce_audio_basics
     juce::juce_audio_devices
     juce::juce_audio_formats
