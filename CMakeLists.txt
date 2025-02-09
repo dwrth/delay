@@ -5,9 +5,10 @@ project(Delay VERSION 1.0.0)
 # Set C++ standard
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Add JUCE as a subdirectory with explicit binary directory
-add_subdirectory(/Users/davidwerth/Developer/audio/JUCE ${CMAKE_BINARY_DIR}/JUCE EXCLUDE_FROM_ALL)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../../LIBS/JUCE ${CMAKE_BINARY_DIR}/JUCE EXCLUDE_FROM_ALL)
 
 # Create the plugin
 juce_add_plugin(Delay
@@ -27,42 +28,44 @@ juce_add_plugin(Delay
 # Generate JUCE header
 juce_generate_juce_header(Delay)
 
+file(GLOB_RECURSE AssetFiles CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/Resources/*")
+juce_add_binary_data(Assets SOURCES ${AssetFiles})
+
 # Add source files
 target_sources(Delay
     PRIVATE
-        Source/PluginProcessor.cpp
-        Source/PluginEditor.cpp
-        Source/Parameters.cpp
-        Source/RotaryKnob.cpp
-        Source/LookAndFeel.cpp
-        ../../../getting-started-book/Resources/ProtectYourEars.h
+    Source/PluginProcessor.cpp
+    Source/PluginEditor.cpp
+    Source/Parameters.cpp
+    Source/RotaryKnob.cpp
+    Source/LookAndFeel.cpp
 )
 
 # Update include directories to include JuceLibraryCode
 target_include_directories(Delay
     PRIVATE
-        Source
-        ${CMAKE_CURRENT_BINARY_DIR}/JuceLibraryCode
+    Source
+    ${CMAKE_CURRENT_BINARY_DIR}/JuceLibraryCode
 )
 
 # Link with JUCE modules
 target_link_libraries(Delay
     PRIVATE
-        juce::juce_audio_basics
-        juce::juce_audio_devices
-        juce::juce_audio_formats
-        juce::juce_audio_plugin_client
-        juce::juce_audio_processors
-        juce::juce_audio_utils
-        juce::juce_core
-        juce::juce_data_structures
-        juce::juce_dsp
-        juce::juce_events
-        juce::juce_graphics
-        juce::juce_gui_basics
-        juce::juce_gui_extra
+    juce::juce_audio_basics
+    juce::juce_audio_devices
+    juce::juce_audio_formats
+    juce::juce_audio_plugin_client
+    juce::juce_audio_processors
+    juce::juce_audio_utils
+    juce::juce_core
+    juce::juce_data_structures
+    juce::juce_dsp
+    juce::juce_events
+    juce::juce_graphics
+    juce::juce_gui_basics
+    juce::juce_gui_extra
     PUBLIC
-        juce::juce_recommended_config_flags
-        juce::juce_recommended_lto_flags
-        juce::juce_recommended_warning_flags
+    juce::juce_recommended_config_flags
+    juce::juce_recommended_lto_flags
+    juce::juce_recommended_warning_flags
 )
