@@ -24,3 +24,6 @@ cmake_install.cmake
 JUCE/
 JuceLibraryCode/
 juce_vst3_helper
+
+# MISC
+.DS_Store

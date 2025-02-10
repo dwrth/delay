@@ -10,9 +10,9 @@
 
 #pragma once
 
+#include <JuceHeader.h>
 #include "juce_graphics/juce_graphics.h"
 #include "juce_gui_basics/juce_gui_basics.h"
-#include <JuceHeader.h>
 
 namespace Colors {
 const juce::Colour background{245, 240, 235};
@@ -30,55 +30,59 @@ const juce::Colour label{80, 80, 80};
 const juce::Colour textBoxBackground{80, 80, 80};
 const juce::Colour value{240, 240, 240};
 const juce::Colour caret{255, 255, 255};
-} // namespace Knob
+}  // namespace Knob
 
 namespace Group {
 const juce::Colour label{160, 155, 150};
 const juce::Colour outline{235, 230, 225};
-} // namespace Group
-} // namespace Colors
+}  // namespace Group
+}  // namespace Colors
 
 class Fonts {
   Fonts() = delete;
 
-public:
+ public:
   static juce::Font getFont(float height = 16.0f);
 
-private:
+ private:
   static const juce::Typeface::Ptr typeFace;
 };
 
 class RotaryKnobLookAndFeel : public juce::LookAndFeel_V4 {
-public:
+ public:
   RotaryKnobLookAndFeel();
 
-  juce::Font getLabelFont(juce::Label &) override;
-  juce::Label *createSliderTextBox(juce::Slider &) override;
-  void drawTextEditorOutline(juce::Graphics &, int, int,
-                             juce::TextEditor &) override {}
-  void fillTextEditorBackground(juce::Graphics &, int, int,
-                                juce::TextEditor &) override;
+  juce::Font getLabelFont(juce::Label&) override;
+  juce::Label* createSliderTextBox(juce::Slider&) override;
+  void drawTextEditorOutline(juce::Graphics&, int, int, juce::TextEditor&) override {}
+  void fillTextEditorBackground(juce::Graphics&, int, int, juce::TextEditor&) override;
 
-  static RotaryKnobLookAndFeel *get() {
+  static RotaryKnobLookAndFeel* get() {
     static RotaryKnobLookAndFeel instance;
     return &instance;
   }
 
-  void drawRotarySlider(juce::Graphics &g, int x, int y, int width, int height,
-                        float sliderPos, float rotaryStartAngle,
-                        float rotaryEndAngle, juce::Slider &slider) override;
+  void drawRotarySlider(juce::Graphics& g,
+                        int x,
+                        int y,
+                        int width,
+                        int height,
+                        float sliderPos,
+                        float rotaryStartAngle,
+                        float rotaryEndAngle,
+                        juce::Slider& slider) override;
 
-private:
+ private:
   juce::DropShadow dropShadow{Colors::Knob::dropShadow, 6, {0, 3}};
   JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(RotaryKnobLookAndFeel)
 };
 
 class MainLookAndFeel : public juce::LookAndFeel_V4 {
-public:
+ public:
   MainLookAndFeel();
 
-  juce::Font getLabelFont(juce::Label &) override;
+  juce::Font getLabelFont(juce::Label&) override;
 
-private:
+ private:
   JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MainLookAndFeel)
 };
