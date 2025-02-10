@@ -1,7 +1,6 @@
 # Build directories
 build/
-Builds/
-Delay_artefacts/
+XCodeBuild/
 
 # IDE specific
 .cache/
