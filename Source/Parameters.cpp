@@ -1,5 +1,4 @@
-/*
-  ==============================================================================
+/* ==============================================================================
 
     Parameters.cpp
     Created: 16 Dec 2024 9:00:04pm
@@ -10,6 +9,7 @@
 
 #include "Parameters.h"
 #include <memory>
+#include "DSP.h"
 #include "juce_audio_processors/juce_audio_processors.h"
 #include "juce_core/juce_core.h"
 template <typename T>
@@ -51,6 +51,7 @@ Parameters::Parameters(juce::AudioProcessorValueTreeState& apvts) {
   castParameter(apvts, delayTimeParamID, delayTimeParam);
   castParameter(apvts, mixParamID, mixParam);
   castParameter(apvts, feedbackParamID, feedbackParam);
+  castParameter(apvts, stereoParamID, stereoParam);
 }
 
 juce::AudioProcessorValueTreeState::ParameterLayout Parameters::createParameterLayout() {
@@ -67,7 +68,10 @@ juce::AudioProcessorValueTreeState::ParameterLayout Parameters::createParameterL
       mixParamID, "Mix", juce::NormalisableRange<float>{0.0f, 100.0f, 1.0f}, 100.0f,
       juce::AudioParameterFloatAttributes().withStringFromValueFunction(stringFromPercent)));
   layout.add(std::make_unique<juce::AudioParameterFloat>(
-      feedbackParamID, "Feedbak", juce::NormalisableRange<float>(-100.0f, 100.0f, 1.0f), 0.0f,
+      feedbackParamID, "Feedback", juce::NormalisableRange<float>(-100.0f, 100.0f, 1.0f), 0.0f,
+      juce::AudioParameterFloatAttributes().withStringFromValueFunction(stringFromPercent)));
+  layout.add(std::make_unique<juce::AudioParameterFloat>(
+      stereoParamID, "Stereo", juce::NormalisableRange<float>(-100.0f, 100.0f, 1.0f), 0.0f,
       juce::AudioParameterFloatAttributes().withStringFromValueFunction(stringFromPercent)));
   return layout;
 }
@@ -78,8 +82,8 @@ void Parameters::update() noexcept {
   targetDelayTime = delayTimeParam->get();
   if (delayTime == 0.0f)
     delayTime = targetDelayTime;
-
   feedbackSmoother.setTargetValue(feedbackParam->get() * 0.01f);
+  stereoSmoother.setTargetValue(stereoParam->get() * 0.01f);
 }
 
 void Parameters::prepareToPlay(double sampleRate) noexcept {
@@ -87,6 +91,7 @@ void Parameters::prepareToPlay(double sampleRate) noexcept {
   gainSmoother.reset(sampleRate, duration);
   mixSmoother.reset(sampleRate, duration);
   feedbackSmoother.reset(sampleRate, duration);
+  stereoSmoother.reset(sampleRate, duration);
 
   coeff = 1.0f - std::exp(-1.0f / (0.2f * float(sampleRate)));
 }
@@ -102,6 +107,10 @@ void Parameters::reset() noexcept {
 
   feedback = 0.0f;
   feedbackSmoother.setCurrentAndTargetValue(feedbackParam->get() * 0.01f);
+
+  panL = 0.0f;
+  panR = 1.0f;
+  stereoSmoother.setCurrentAndTargetValue(stereoParam->get() * 0.01f);
 }
 
 void Parameters::smoothen() noexcept {
@@ -109,4 +118,5 @@ void Parameters::smoothen() noexcept {
   mix = mixSmoother.getNextValue();
   delayTime += (targetDelayTime - delayTime) * coeff;
   feedback = feedbackSmoother.getNextValue();
+  panningEqualPower(stereoSmoother.getNextValue(), panL, panR);
 }
