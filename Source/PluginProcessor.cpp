@@ -10,13 +10,17 @@
 #include "PluginEditor.h"
 #include "ProtectYourEars.h"
 #include "juce_audio_basics/juce_audio_basics.h"
+#include "juce_dsp/juce_dsp.h"
 
 //==============================================================================
 DelayAudioProcessor::DelayAudioProcessor()
     : AudioProcessor(BusesProperties()
                          .withInput("Input", juce::AudioChannelSet::stereo(), true)
                          .withOutput("Output", juce::AudioChannelSet::stereo(), true)),
-      params(apvts) {}
+      params(apvts) {
+  lowCutFilter.setType(juce::dsp::StateVariableTPTFilterType::highpass);
+  highCutFilter.setType(juce::dsp::StateVariableTPTFilterType::lowpass);
+}
 
 DelayAudioProcessor::~DelayAudioProcessor() {}
 
@@ -92,6 +96,12 @@ void DelayAudioProcessor::prepareToPlay(double sampleRate, int samplesPerBlock) 
 
   feedbackL = 0.0f;
   feedbackR = 0.0f;
+
+  lowCutFilter.prepare(spec);
+  lowCutFilter.reset();
+
+  highCutFilter.prepare(spec);
+  highCutFilter.reset();
 }
 
 void DelayAudioProcessor::releaseResources() {
@@ -153,6 +163,9 @@ void DelayAudioProcessor::processBlock(juce::AudioBuffer<float>& buffer,
     float delayInSamples = params.delayTime / 1000.0f * sampleRate;
     delayLine.setDelay(delayInSamples);
 
+    lowCutFilter.setCutoffFrequency(params.lowCut);
+    highCutFilter.setCutoffFrequency(params.highCut);
+
     float dryL = inputDataL[sample];
     float dryR = inputDataR[sample];
 
@@ -165,7 +178,11 @@ void DelayAudioProcessor::processBlock(juce::AudioBuffer<float>& buffer,
     float wetR = delayLine.popSample(1);
 
     feedbackL = wetL * params.feedback;
+    feedbackL = lowCutFilter.processSample(0, feedbackL);
+    feedbackL = highCutFilter.processSample(0, feedbackL);
     feedbackR = wetR * params.feedback;
+    feedbackR = lowCutFilter.processSample(1, feedbackR);
+    feedbackR = highCutFilter.processSample(1, feedbackR);
 
     float mixL = dryL + wetL * params.mix;
     float mixR = dryR + wetR * params.mix;
