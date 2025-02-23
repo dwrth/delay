@@ -187,6 +187,11 @@ void DelayAudioProcessor::processBlock(juce::AudioBuffer<float>& buffer,
     float wetL = delayLine.popSample(0);
     float wetR = delayLine.popSample(1);
 
+    wetL = lowCutFilter.processSample(0, wetL);
+    wetL = highCutFilter.processSample(0, wetL);
+    wetR = lowCutFilter.processSample(1, wetR);
+    wetR = highCutFilter.processSample(1, wetR);
+
     feedbackL = wetL * params.feedback;
     feedbackL = lowCutFilter.processSample(0, feedbackL);
     feedbackL = highCutFilter.processSample(0, feedbackL);
