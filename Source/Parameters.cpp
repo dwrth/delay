@@ -88,7 +88,7 @@ juce::AudioProcessorValueTreeState::ParameterLayout Parameters::createParameterL
       mixParamID, "Mix", juce::NormalisableRange<float>{0.0f, 100.0f, 1.0f}, 100.0f,
       juce::AudioParameterFloatAttributes().withStringFromValueFunction(stringFromPercent)));
   layout.add(std::make_unique<juce::AudioParameterFloat>(
-      feedbackParamID, "Feedback", juce::NormalisableRange<float>(-100.0f, 100.0f, 1.0f), 0.0f,
+      feedbackParamID, "Feedback", juce::NormalisableRange<float>(0.0f, 100.0f, 1.0f), 0.0f,
       juce::AudioParameterFloatAttributes().withStringFromValueFunction(stringFromPercent)));
   layout.add(std::make_unique<juce::AudioParameterFloat>(
       stereoParamID, "Stereo", juce::NormalisableRange<float>(-100.0f, 100.0f, 1.0f), 0.0f,

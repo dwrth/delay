@@ -45,7 +45,8 @@ target_sources(Delay
 juce_add_binary_data(AudioPluginData SOURCES
   Resources/Lato-Medium.ttf
   Resources/Logo.png
-  Resources/Noise.png)
+  Resources/Noise.png
+  Resources/Db-bahn.png)
 
 # Link with JUCE modules
 target_link_libraries(Delay

@@ -32,7 +32,7 @@ class DelayAudioProcessorEditor : public juce::AudioProcessorEditor {
   RotaryKnob gainKnob{"Gain", audioProcessor.apvts, gainParamID, true};
   RotaryKnob mixKnob{"Mix", audioProcessor.apvts, mixParamID};
   RotaryKnob delayTimeKnob{"Time", audioProcessor.apvts, delayTimeParamID};
-  RotaryKnob feedbackKnob{"Feedback", audioProcessor.apvts, feedbackParamID, true};
+  RotaryKnob feedbackKnob{"Feedback", audioProcessor.apvts, feedbackParamID};
   RotaryKnob stereoKnob{"Stereo", audioProcessor.apvts, stereoParamID, true};
   RotaryKnob lowCutKnob{"Low Cut", audioProcessor.apvts, lowCutParamID};
   RotaryKnob highCutKnob{"High Cut", audioProcessor.apvts, highCutParamID};

@@ -54,13 +54,13 @@ void DelayAudioProcessorEditor::paint(juce::Graphics& g) {
   g.fillRect(getLocalBounds());
 
   auto rect = getLocalBounds().withHeight(40);
-  g.setColour(Colors::header);
+  g.setColour(Colors::background);
   g.fillRect(rect);
 
-  auto image = juce::ImageCache::getFromMemory(BinaryData::Logo_png, BinaryData::Logo_pngSize);
+  auto image = juce::ImageCache::getFromMemory(BinaryData::Dbbahn_png, BinaryData::Dbbahn_pngSize);
 
-  int destWidth = image.getWidth() / 2;
-  int destHeight = image.getHeight() / 2;
+  int destWidth = image.getWidth() / 20;
+  int destHeight = image.getHeight() / 20;
 
   g.drawImage(image, getWidth() / 2 - destWidth / 2, 0, destWidth, destHeight, 0, 0, image.getWidth(),
               image.getHeight());
