@@ -13,6 +13,8 @@
 #include "Parameters.h"
 #include "PluginProcessor.h"
 #include "RotaryKnob.h"
+#include "juce_audio_processors/juce_audio_processors.h"
+#include "juce_gui_basics/juce_gui_basics.h"
 
 //==============================================================================
 /**
@@ -36,6 +38,11 @@ class DelayAudioProcessorEditor : public juce::AudioProcessorEditor {
   RotaryKnob stereoKnob{"Stereo", audioProcessor.apvts, stereoParamID, true};
   RotaryKnob lowCutKnob{"Low Cut", audioProcessor.apvts, lowCutParamID};
   RotaryKnob highCutKnob{"High Cut", audioProcessor.apvts, highCutParamID};
+  RotaryKnob delayNoteKnob{"Note", audioProcessor.apvts, delayNoteParamID};
+
+  juce::TextButton tempoSyncButton;
+  juce::AudioProcessorValueTreeState::ButtonAttachment tempoSyncAttachment{
+      audioProcessor.apvts, tempoSyncParamID.getParamID(), tempoSyncButton};
 
   juce::GroupComponent delayGroup, feedbackGroup, outputGroup;
 

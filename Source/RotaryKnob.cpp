@@ -1,13 +1,3 @@
-/*
-  ==============================================================================
-
-    RotaryKnob.cpp
-    Created: 19 Dec 2024 9:56:26pm
-    Author:  David Werth
-
-  ==============================================================================
-*/
-
 #include "RotaryKnob.h"
 #include <JuceHeader.h>
 #include "LookAndFeel.h"
