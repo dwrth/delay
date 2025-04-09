@@ -39,6 +39,7 @@ target_sources(Delay
     Source/Parameters.cpp
     Source/RotaryKnob.cpp
     Source/LookAndFeel.cpp
+    Source/Tempo.cpp
 )
 
 # Add binary data
