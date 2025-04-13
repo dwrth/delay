@@ -49,6 +49,8 @@ class Parameters {
   int delayNote = 0;
   bool tempoSync = false;
 
+  juce::AudioParameterBool* tempoSyncParam;
+
  private:
   juce::AudioParameterFloat* gainParam;
   juce::LinearSmoothedValue<float> gainSmoother;
@@ -72,7 +74,6 @@ class Parameters {
   juce::AudioParameterFloat* highCutParam;
   juce::LinearSmoothedValue<float> highCutSmoother;
 
-  juce::AudioParameterBool* tempoSyncParam;
   juce::AudioParameterChoice* delayNoteParam;
 
   JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Parameters)

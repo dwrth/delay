@@ -19,7 +19,7 @@
 //==============================================================================
 /**
  */
-class DelayAudioProcessorEditor : public juce::AudioProcessorEditor {
+class DelayAudioProcessorEditor : public juce::AudioProcessorEditor, private juce::AudioProcessorParameter::Listener {
  public:
   DelayAudioProcessorEditor(DelayAudioProcessor&);
   ~DelayAudioProcessorEditor() override;
@@ -29,6 +29,10 @@ class DelayAudioProcessorEditor : public juce::AudioProcessorEditor {
   void resized() override;
 
  private:
+  void parameterValueChanged(int, float) override;
+  void parameterGestureChanged(int, bool) override {}
+  void updateDelayKnobs(bool tempoSyncActive);
+
   DelayAudioProcessor& audioProcessor;
 
   RotaryKnob gainKnob{"Gain", audioProcessor.apvts, gainParamID, true};
