@@ -40,6 +40,7 @@ target_sources(Delay
     Source/RotaryKnob.cpp
     Source/LookAndFeel.cpp
     Source/Tempo.cpp
+    Source/DelayLine.cpp
 )
 
 # Add binary data
