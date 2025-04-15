@@ -9,6 +9,7 @@
 #pragma once
 
 #include <JuceHeader.h>
+#include "DelayLine.h"
 #include "Parameters.h"
 #include "Tempo.h"
 #include "juce_dsp/juce_dsp.h"
@@ -60,7 +61,7 @@ class DelayAudioProcessor : public juce::AudioProcessor {
  private:
   Tempo tempo;
 
-  juce::dsp::DelayLine<float, juce::dsp::DelayLineInterpolationTypes::Linear> delayLine;
+  DelayLine delayLineL, delayLineR;
   juce::dsp::StateVariableTPTFilter<float> lowCutFilter;
   juce::dsp::StateVariableTPTFilter<float> highCutFilter;
 
